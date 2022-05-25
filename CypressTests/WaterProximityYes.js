@@ -48,13 +48,10 @@ it('Water Proximity Yes Test', function() {
         .then(text => +text.replace(/[^\d]/g, '').trim())
         .should('be.gt', 0)
 
-     //Ensure that the checkbox is not checked 
+     //Ensure that the checkbox is not checked and enabled
     cy.get('[type="checkbox"]')
         .should('not.be.checked')
-
-    //Ensure that the checkbox is enabled   
-    cy.get('[type="checkbox"]')
-        .should('not.be.disabled')
+        .and(('not.be.disabled'))
 
     //Ensure that the client can view the Standard plan and that an estimate is given which is above $0
     cy.get('[data-testid="price_Standard"]')
@@ -64,9 +61,9 @@ it('Water Proximity Yes Test', function() {
 
      //Ensure that the client can view the Complete plan and that an estimate is given which is above $0
      cy.get('[data-testid="price_Complete"]')
-     .invoke('text')
-     .then(text => +text.replace('$', '').trim())
-     .should('be.gt', 0)
+        .invoke('text')
+        .then(text => +text.replace('$', '').trim())
+        .should('be.gt', 0)
 })
 
 

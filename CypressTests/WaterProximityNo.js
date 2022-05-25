@@ -46,9 +46,9 @@ it('Water Proximity No Test', function() {
 
      //Ensure that the client can view the Complete plan and that an estimate is given which is above $0
      cy.get('[data-testid="price_Complete"]')
-     .invoke('text')
-     .then(text => +text.replace('$', '').trim())
-     .should('be.gt', 0)    
+        .invoke('text')
+        .then(text => +text.replace('$', '').trim())
+        .should('be.gt', 0)    
 
     //Ensure that the text stating Flood Protection included is present
     cy.get('.MuiFormControlLabel-root>.MuiTypography-root')
@@ -57,9 +57,6 @@ it('Water Proximity No Test', function() {
     //Ensure that the checkbox is checked 
     cy.get('[type="checkbox"]')
         .should('be.checked')
-        
-    //Ensure that the checkbox is disabled   
-    cy.get('[type="checkbox"]')
-        .should('be.disabled')
+        .and('be.disabled')
 
 })

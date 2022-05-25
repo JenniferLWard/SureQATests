@@ -21,6 +21,6 @@ it('Zip Code Too Long Test', function() {
 
     //Ensure that submit button is disabled
     cy.get('.MuiInputBase-input')
-    .invoke('attr', 'aria-invalid')
-    .should('eq', 'true')
+        .invoke('attr', 'aria-invalid')
+        .should('eq', 'true')
 })
